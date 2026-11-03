@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dati e magazzino - CincoDitta</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <p><a href="index.html">CincoDitta</a></p>
+    <h1>Dati e magazzino</h1>
+
+    <section>
+      <h2>1. Scarica il file</h2>
+      <p>Il file contiene i dati attuali, con il foglio Flussi vuoto.</p>
+      <p><a id="scarica" class="pulsante" href="/api/excel">Scarica il file Excel</a></p>
+    </section>
+
+    <section>
+      <h2>2. Carica il file modificato</h2>
+      <form id="caricamento">
+        <label>File .xlsx (massimo 10 MB)
+          <input id="file" type="file" accept=".xlsx" required>
+        </label>
+        <button type="submit">Controlla il file</button>
+      </form>
+      <p id="messaggio" role="status"></p>
+    </section>
+
+    <section id="anteprima" hidden>
+      <h2>3. Controlla e conferma</h2>
+      <div id="contenuto-anteprima"></div>
+      <button id="conferma" type="button">Conferma e applica</button>
+    </section>
+
+    <section>
+      <h2>Giacenze</h2>
+      <div id="giacenze"></div>
+      <div id="movimenti"></div>
+    </section>
+
+    <section>
+      <h2>Arrivi previsti</h2>
+      <div id="arrivi"></div>
+    </section>
+
+    <section>
+      <h2>Dati mancanti</h2>
+      <div id="mancanti"></div>
+    </section>
+  </main>
+  <script src="dati.js"></script>
+</body>
+</html>

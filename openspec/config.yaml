@@ -18,10 +18,18 @@ context: |
   Struttura: backend/cincoditta (codice), frontend (pagine), tests (test),
   data (database locale, escluso da git).
 
-  Dominio (ipotesi iniziale, da confermare a ogni proposta): commesse e ordini,
-  presse a iniezione, stampi, materie prime, turni e operatori, pianificazione
-  della produzione. Non aggiungere funzionalità di dominio senza una modifica
-  OpenSpec dedicata.
+  Flusso confermato dalla ditta: la commessa senza materia prima disponibile o
+  con data confermata attende in una coda a parte; se lo stampo è già in macchina
+  o in coda si accorpa, purché tutti i lavori coinvolti restino entro la data di
+  spedizione; altrimenti si sceglie la coda tra le presse compatibili, e il
+  responsabile conferma la proposta. Seguono produzione, montaggio se previsto
+  (con lista d'attesa se mancano i componenti, che non bloccano la stampa),
+  controllo qualità, magazzino prodotti finiti e spedizione.
+
+  Dati: il gestore mantiene in un file Excel dati tecnici, ordini e flussi di
+  magazzino; le giacenze sono calcolate dal programma dai movimenti.
+
+  Non aggiungere funzionalità di dominio senza una modifica OpenSpec dedicata.
 
   Terminologia: usare i termini italiani del reparto nelle specifiche e
   nell'interfaccia.

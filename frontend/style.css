@@ -1,10 +1,81 @@
 :root {
   color-scheme: light dark;
   font-family: system-ui, sans-serif;
+  --bordo: light-dark(#c9c9c9, #555);
+  --accento: light-dark(#0b5cad, #7db7f0);
+  --pericolo: light-dark(#b3261e, #ff8a80);
+  --successo: light-dark(#1b6e2e, #7fd694);
 }
 
 main {
-  max-width: 40rem;
+  max-width: 60rem;
   margin: 2rem auto;
   padding: 0 1rem;
+}
+
+section {
+  margin-block: 2rem;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid var(--bordo);
+  padding: 0.35rem 0.6rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.scorrevole {
+  overflow-x: auto;
+}
+
+.pulsante,
+button:not(.collegamento) {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--accento);
+  border-radius: 0.3rem;
+  background: none;
+  color: var(--accento);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.collegamento {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accento);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+}
+
+label {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.negativa,
+.errore {
+  color: var(--pericolo);
+  font-weight: 600;
+}
+
+.riuscito {
+  color: var(--successo);
+  font-weight: 600;
 }

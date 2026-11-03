@@ -23,3 +23,6 @@ data/*
 
 # Sistema
 .DS_Store
+
+# File Excel (contengono dati aziendali)
+*.xlsx

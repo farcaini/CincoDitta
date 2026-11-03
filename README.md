@@ -18,6 +18,28 @@ L'applicazione risponde su <http://127.0.0.1:8000>. Il database viene creato in
 `data/cincoditta.db` e non viene versionato; per usare un altro percorso, imposta
 `CINCODITTA_DB`.
 
+## Dati e magazzino
+
+I dati tecnici, gli ordini e i flussi di magazzino si gestiscono con un file Excel, dalla
+pagina <http://127.0.0.1:8000/dati.html>:
+
+1. Scarica il file: contiene i dati attuali, con il foglio Flussi vuoto.
+2. Modifica i fogli e registra nei Flussi arrivi, spedizioni e rettifiche.
+3. Carica il file: viene controllato e mostra un'anteprima, senza applicare nulla.
+4. Conferma: i cambiamenti vengono applicati tutti insieme.
+
+Regole principali:
+
+- Le giacenze non si inseriscono: il programma le calcola dai movimenti. Il foglio Giacenze è
+  in sola lettura. La situazione iniziale si carica con una rettifica per ogni codice.
+- Riferimento e codice identificano un flusso: ricaricare una vecchia copia non lo conta due
+  volte. Se i valori sono diversi, nell'anteprima scegli se aggiornarlo.
+- Gli arrivi previsti non contano nella giacenza finché nei Flussi non c'è un arrivo con lo
+  stesso riferimento e materiale.
+- I dati tecnici vuoti sono ammessi e vengono elencati tra i dati mancanti, mai stimati.
+
+Il file compilato contiene dati aziendali: non versionarlo (`*.xlsx` è escluso da git).
+
 ## Test
 
 ```bash
